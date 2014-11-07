@@ -9,6 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'devise'
+gem 'simple_form'
 
 group :development do
   gem 'spring'
