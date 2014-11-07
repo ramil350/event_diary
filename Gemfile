@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'devise'
 gem 'simple_form'
+gem 'haml'
 
 group :development do
   gem 'spring'
