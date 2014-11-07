@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
+gem 'devise'
 
 group :development do
   gem 'spring'
@@ -16,4 +17,10 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
+
+group :test do
+  gem 'shoulda-matchers', require: false
 end
