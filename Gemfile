@@ -23,6 +23,8 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'byebug'
+  gem 'pry-byebug'
 end
 
 group :test do
