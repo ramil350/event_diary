@@ -6,7 +6,23 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = link_to("Logout", destroy_user_session_path, method: :delete) if user_signed_in?
-    %p.notice= notice
-    %p.alert= alert
-    = yield
+    %header.navbar.navbar-static-top.navbar-inverse
+      .container
+        .navbar-header
+          %a.navbar-brand{ href: '/' } EVY
+        %nav.collapse.navbar-collapse.bs-navbar-collapse{ role: "navigation" }
+          %nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %a.btn.btn-default Calendar
+              %a.btn.btn-default Profile
+              = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-danger'
+            - else
+              = link_to 'Sign up', new_user_registration_path, class: 'btn btn-success'
+              = link_to 'Log in', new_user_session_path, class: 'btn btn-default'
+
+    .container
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
+      = yield

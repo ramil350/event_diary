@@ -5,7 +5,14 @@ describe 'Home page' do
 
   subject { page }
 
-  it { should have_selector('h1', text: 'EVY') }
-  it { should have_link('Sign in', href: new_user_session_path) }
-  it { should have_link('Sign up', href: new_user_registration_path) }
+  context 'unauthenticated' do
+    it { should have_css('.navbar-brand', text: 'EVY') }
+    it { should have_link('Log in', href: new_user_session_path) }
+    it { should have_link('Sign up', href: new_user_registration_path) }
+    it { should_not have_link('Log out') }
+  end
+
+  # TODO:
+  # authenticated
+
 end

@@ -11,6 +11,8 @@ gem 'pg'
 gem 'devise'
 gem 'simple_form'
 gem 'haml'
+gem 'bootstrap-sass', '~> 3.3.0'
+gem 'autoprefixer-rails'
 
 group :development do
   gem 'spring'
