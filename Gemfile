@@ -1,3 +1,4 @@
+ruby '2.1.4'
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.7'
@@ -32,4 +33,8 @@ group :test do
   gem 'shoulda-matchers', require: false
   gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter', require: nil
+end
+
+group :production do
+  gem 'rails_12factor'
 end
