@@ -1,6 +1,6 @@
 .panel.panel-default
   .panel-heading
-    = @user.full_name
+    = @user.display_name
 
   .panel-body
     .form-group
@@ -17,4 +17,5 @@
       %p Full name
       %strong= @user.full_name
 
-    = link_to 'Edit profile', edit_user_registration_path(@user), class: 'btn btn-default'
+    - if @user == current_user
+      = link_to 'Edit profile', edit_user_registration_path(@user), class: 'btn btn-default'

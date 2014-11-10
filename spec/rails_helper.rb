@@ -51,9 +51,6 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  config.include Warden::Test::Helpers
-  Warden.test_mode!
-
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
@@ -64,4 +61,8 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  config.include UsersHelper
+  config.include Warden::Test::Helpers
+  Warden.test_mode!
 end
