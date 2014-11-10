@@ -1,10 +1,20 @@
-%h1= @user.full_name
+.panel.panel-default
+  .panel-heading
+    = @user.full_name
 
-.user_information
-  %h3 Email
-  %h5= @user.email
+  .panel-body
+    .form-group
+      .form-group
+        %p Photo
+        = image_tag(photo_url_for(@user))
 
-  %h3 Full name
-  %h5= @user.full_name
-  
-= link_to 'Edit profile', edit_user_registration_path(@user), class: 'btn btn-default'
+
+    .form-group
+      %p Email
+      %strong= @user.email
+
+    .form-group
+      %p Full name
+      %strong= @user.full_name
+
+    = link_to 'Edit profile', edit_user_registration_path(@user), class: 'btn btn-default'

@@ -13,6 +13,8 @@
         %nav.collapse.navbar-collapse.bs-navbar-collapse{ role: "navigation" }
           %nav.navbar-nav.navbar-right
             - if user_signed_in?
+              = link_to image_tag(photo_url_for(current_user, 30)), user_path(current_user)
+              = link_to current_user.display_name, user_path(current_user), class: 'navbar-link'
               = link_to 'Calendar', '#', class: 'btn btn-default'
               = link_to 'Profile', user_path(current_user), class: 'btn btn-default'
               = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-danger'
@@ -22,8 +24,5 @@
 
     .main-content
       .container
-        - if notice
-          %p.alert.alert-success= notice
-        - if alert
-          %p.alert.alert-danger= alert
+        = render 'shared/flashes'
         = yield
