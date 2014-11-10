@@ -1,0 +1,21 @@
+.panel.panel-default
+  .panel-heading
+    = @user.display_name
+
+  .panel-body
+    .form-group
+      .form-group
+        %p Photo
+        = image_tag(photo_url_for(@user))
+
+
+    .form-group
+      %p Email
+      %strong= @user.email
+
+    .form-group
+      %p Full name
+      %strong= @user.full_name
+
+    - if @user == current_user
+      = link_to 'Edit profile', edit_user_registration_path(@user), class: 'btn btn-default'

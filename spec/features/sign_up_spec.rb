@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe 'Sign up' do
   before do
     visit new_user_registration_path
@@ -10,13 +12,15 @@ describe 'Sign up' do
     click_button 'Sign up'
   end
 
-  subject { page }
-
   context 'with valid info' do
     let(:new_user) { FactoryGirl.build(:user) }
 
-    it 'should create a new user' do
+    it 'should render success message' do
       expect(page).to have_text('Welcome! You have signed up successfully.')
+    end
+
+    it 'should create a new user' do
+      expect(User.find_by_email(new_user.email)).to be_persisted
     end
   end
 
