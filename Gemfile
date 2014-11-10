@@ -28,5 +28,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
+  gem 'selenium-webdriver'
 end

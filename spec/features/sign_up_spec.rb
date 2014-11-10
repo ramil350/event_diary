@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe 'Sign up' do
   before do
     visit new_user_registration_path
