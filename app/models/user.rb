@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :email
 
+  has_many :events, dependent: :destroy
+
   def display_name
     full_name || email
   end

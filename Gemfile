@@ -14,6 +14,7 @@ gem 'simple_form'
 gem 'haml'
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails'
+gem 'enumerize'
 
 group :development do
   gem 'spring'

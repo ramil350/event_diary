@@ -1,0 +1,12 @@
+.panel.panel-default
+  .panel-heading
+    Calendar
+
+  .panel-body
+    = link_to 'New event', new_user_event_path(current_user), class: 'btn btn-success'
+
+    - if @events.empty?
+      %h2 No events found
+    - else
+      - @events.each do |event|
+        %p= event.title

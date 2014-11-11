@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#index'
 
-  resources :users, only: :show
+  resources :users, only: :show do
+    get 'calendar', as: :calendar
+
+    resources :events, only: [:new, :create]
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
