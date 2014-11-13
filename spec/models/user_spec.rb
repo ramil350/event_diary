@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, :type => :model do
+describe User do
   let(:user) { FactoryGirl.create(:user) }
 
   describe 'attributes' do
@@ -9,6 +9,19 @@ RSpec.describe User, :type => :model do
     it { should be_valid }
     it { should validate_presence_of(:email) }
     it { should respond_to(:full_name) }
+    it { should respond_to(:events) }
+  end
+
+  describe 'associations' do
+    let!(:event1) { FactoryGirl.create(:event, user: user) }
+    let!(:event2) { FactoryGirl.create(:event, user: user) }
+    let!(:foreign_event) { FactoryGirl.create(:event) }
+
+    context 'events' do
+      it 'should destroy its events' do
+        expect { user.destroy }.to change { user.events.count }.by(-2)
+      end
+    end
   end
 
   describe '#display_name' do

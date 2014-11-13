@@ -22,7 +22,7 @@ describe 'Log in' do
     let(:user) { FactoryGirl.build(:user, email: 'invalid_email') }
 
     it 'should render error message' do
-      expect(page).to have_css('div#error_explanation')
+      expect(page).to have_css('div.alert-danger')
     end
   end
 end

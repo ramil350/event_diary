@@ -1,37 +1,34 @@
-.panel.panel-default
-  .panel-heading
-    Sign up
+- provide(:title, 'Sign up')
 
-  .panel-body
-    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f|
-      = devise_error_messages!
-      .form-group
-        = f.label :full_name, class: 'col-sm-2 control-label'
-        .col-sm-6
-          = f.text_field :full_name, autofocus: true, class: 'form-control'
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal' }) do |f|
+  = devise_error_messages!
+  .form-group
+    = f.label :full_name, class: 'col-sm-2 control-label'
+    .col-sm-6
+      = f.text_field :full_name, autofocus: true, class: 'form-control'
 
-      .form-group
-        = f.label :email, class: 'col-sm-2 control-label'
-        .col-sm-6
-          = f.email_field :email, class: 'form-control'
+  .form-group
+    = f.label :email, class: 'col-sm-2 control-label'
+    .col-sm-6
+      = f.email_field :email, class: 'form-control'
 
-      .form-group
-        = f.label :password, class: 'col-sm-2 control-label'
-        - if @validatable
-          %em
-            (#{@minimum_password_length} characters minimum)
-        .col-sm-6
-          = f.password_field :password, autocomplete: 'off', class: 'form-control'
+  .form-group
+    = f.label :password, class: 'col-sm-2 control-label'
+    - if @validatable
+      %em
+        (#{@minimum_password_length} characters minimum)
+    .col-sm-6
+      = f.password_field :password, autocomplete: 'off', class: 'form-control'
 
-      .form-group
-        = f.label :password_confirmation, class: 'col-sm-2 control-label'
-        .col-sm-6
-          = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+  .form-group
+    = f.label :password_confirmation, class: 'col-sm-2 control-label'
+    .col-sm-6
+      = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
 
-      .form-group
-        .col-sm-offset-2.col-sm-6
-          = f.submit 'Sign up', class: 'btn btn-default'
+  .form-group
+    .col-sm-offset-2.col-sm-6
+      = f.submit 'Sign up', class: 'btn btn-default'
 
-      .form-group
-        .col-sm-offset-2.col-sm-6
-          = render 'devise/shared/links'
+  .form-group
+    .col-sm-offset-2.col-sm-6
+      = render 'devise/shared/links'
