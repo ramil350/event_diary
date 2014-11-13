@@ -20,11 +20,14 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update_attributes(event_params)
-      flash[:notice] = 'Event updated successfully.'
-      redirect_to user_calendar_path(current_user)
-    else
-      render 'edit'
+    respond_to do |format|
+      if @event.update_attributes(event_params)
+        format.html { redirect_to user_calendar_path(current_user), notice: 'Event updated successfully.' }
+        format.json { head :no_content }
+      else
+        format.html { render 'edit' }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
     end
   end
 
