@@ -13,6 +13,6 @@ describe 'Calendar' do
 
   subject { page }
 
-  it { should have_link('New event', href: new_user_event_path(user)) }
+  it { should have_link('New event', href: new_event_path(user)) }
   # it { should have_content(event1.title) }
 end

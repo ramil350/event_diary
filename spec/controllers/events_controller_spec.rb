@@ -14,10 +14,10 @@ describe EventsController, type: :controller do
   end
 
   describe 'POST create' do
-    before { post :create, user_id: user.id, event: event_params }
+    before { post :create, event: event_params }
 
     context 'with valid params' do
-      let(:event_params) { { title: 'New event', starts_on: Date.today, recurring: false, repeats: '' } }
+      let(:event_params) { { user_id: user.id, title: 'New event', starts_on: Date.today, recurring: false, repeats: '' } }
 
       it 'creates a new event' do
         expect(response).to redirect_to(user_calendar_path(user))
@@ -45,6 +45,45 @@ describe EventsController, type: :controller do
 
     it 'should return events as json' do
       expect(response.body).to eq(expected_json)
+    end
+  end
+
+  describe 'GET edit' do
+    let(:event) { FactoryGirl.create(:event) }
+
+    before { get :edit, id: event.id }
+
+    it 'should assign @event' do
+      expect(assigns(:event)).to eq(event)
+    end
+
+    it 'should render edit' do
+      expect(response).to render_template('edit')
+    end
+  end
+
+  describe 'PATCH update' do
+    let(:event) { FactoryGirl.create(:event) }
+    let(:event_params) { { title: 'New title', starts_on: Date.today } }
+
+    before { patch :update, id: event.id, event: event_params }
+
+    context 'valid params' do
+      it 'should assign @event' do
+        expect(assigns(:event)).to eq(event)
+      end
+
+      it 'should redirect to calendar' do
+        expect(response).to redirect_to(user_calendar_path(user))
+      end
+    end
+
+    context 'invalid params' do
+      let(:event_params) { { title: '' } }
+
+      it 'should render edit' do
+        expect(response).to render_template('edit')
+      end
     end
   end
 end

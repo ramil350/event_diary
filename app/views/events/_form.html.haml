@@ -1,0 +1,26 @@
+= simple_form_for(event, html: { class: 'form-horizontal' }) do |f|
+  = render 'shared/errors', object: event
+
+  .form-group
+    = f.label :title, class: 'col-sm-2 control-label'
+    .col-sm-6
+      = f.text_field :title, autofocus: true, class: 'form-control'
+
+  .form-group
+    = f.label :starts_on, class: 'col-sm-2 control-label'
+    .col-sm-6
+      = f.date_field :starts_on, class: 'form-control', value: event.starts_on || Date.today
+
+  .form-group
+    .col-sm-6.col-sm-offset-2
+      = f.check_box :recurring
+      = f.label :recurring
+
+  .form-group
+    = f.label :repeats, class: 'col-sm-2 control-label'
+    .col-sm-6
+      = f.select :repeats, options_for_select(Event::REPEAT_TYPES, event.repeats), { include_blank: true }, { class: 'form-control', disabled: true }
+
+  .form-group
+    .col-sm-6.col-sm-offset-2
+      = f.submit 'Submit', class: 'btn btn-default'

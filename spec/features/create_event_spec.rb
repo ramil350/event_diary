@@ -5,11 +5,11 @@ describe 'Create event' do
 
   before do
     login_as user
-    visit new_user_event_path(user)
+    visit new_event_path(user)
 
     fill_in 'Title', with: new_event.title
     fill_in 'Starts on', with: new_event.starts_on
-    click_button 'Create event'
+    click_button 'Submit'
   end
 
   context 'with valid values' do
