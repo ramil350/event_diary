@@ -8,11 +8,9 @@ Rails.application.routes.draw do
 
   resources :users do
     get 'calendar', as: :calendar
-
-    resources :events, only: [:new, :create]
   end
 
-  get 'events', to: 'events#index'
+  resources 'events', except: :show
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
