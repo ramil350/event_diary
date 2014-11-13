@@ -25,4 +25,10 @@
     .main-content
       .container
         = render 'shared/flashes'
-        = yield
+
+        .panel.panel-default
+          - if yield(:title).present?
+            .panel-heading
+              = yield(:title)
+          .panel-body
+            = yield

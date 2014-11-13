@@ -9,7 +9,6 @@ class EventsController < ApplicationController
       flash[:notice] = 'Event created successfully.'
       redirect_to user_calendar_path(current_user)
     else
-      flash[:danger] = 'Event could not be created.'
       render 'new'
     end
   end
