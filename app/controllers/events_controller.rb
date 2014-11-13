@@ -13,6 +13,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def index
+    render json: Event.for_user(current_user).over_period(params[:start], params[:end])
+  end
+
   private
 
   def event_params

@@ -9,9 +9,6 @@ describe 'Create event' do
 
     fill_in 'Title', with: new_event.title
     fill_in 'Starts on', with: new_event.starts_on
-    check 'Recurring'
-    select 'daily', from: 'Repeats'
-
     click_button 'Create event'
   end
 

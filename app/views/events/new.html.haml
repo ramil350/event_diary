@@ -11,7 +11,7 @@
   .form-group
     = f.label :starts_on, class: 'col-sm-2 control-label'
     .col-sm-6
-      = f.date_field :starts_on, class: 'form-control'
+      = f.date_field :starts_on, class: 'form-control', value: Date.today
 
   .form-group
     .col-sm-6.col-sm-offset-2
@@ -21,7 +21,7 @@
   .form-group
     = f.label :repeats, class: 'col-sm-2 control-label'
     .col-sm-6
-      = f.select :repeats, options_for_select(Event::REPEAT_TYPES), {}, class: 'form-control'
+      = f.select :repeats, options_for_select(Event::REPEAT_TYPES), { include_blank: true }, { class: 'form-control', disabled: true }
 
   .form-group
     .col-sm-6.col-sm-offset-2
