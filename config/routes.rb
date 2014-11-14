@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources 'events', except: :show
 
+  get 'public_calendar', to: 'calendars#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

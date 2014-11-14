@@ -35,8 +35,8 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
-  gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter', require: nil
+  gem 'poltergeist'
 end
 
 group :production do
