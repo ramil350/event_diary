@@ -24,3 +24,8 @@
   .form-group
     .col-sm-6.col-sm-offset-2
       = f.submit 'Submit', class: 'btn btn-default'
+      = link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+
+  .form-group
+    .col-sm-offset-2.col-sm-6
+      = link_to 'Back', :back

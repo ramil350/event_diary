@@ -9,7 +9,7 @@
     %header.navbar.navbar-static-top.navbar-inverse
       .container
         .navbar-header
-          %a.navbar-brand{ href: '/' } EVY
+          %a.navbar-brand{ href: '/' } Event Diary
         %nav.collapse.navbar-collapse.bs-navbar-collapse{ role: "navigation" }
           %nav.navbar-nav.navbar-right
             - if user_signed_in?
@@ -17,7 +17,7 @@
               = link_to current_user.display_name, user_path(current_user), class: 'navbar-link'
               = link_to 'Calendar', user_calendar_path(current_user), class: 'btn btn-default'
               = link_to 'Profile', user_path(current_user), class: 'btn btn-default'
-              = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-danger'
+              = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-default'
             - else
               = link_to 'Sign up', new_user_registration_path, class: 'btn btn-success'
               = link_to 'Log in', new_user_session_path, class: 'btn btn-default'

@@ -19,9 +19,7 @@ describe EventsController, type: :controller do
     context 'with valid params' do
       let(:event_params) { { user_id: user.id, title: 'New event', starts_on: Date.today, recurring: false, repeats: '' } }
 
-      it 'creates a new event' do
-        expect(response).to redirect_to(user_calendar_path(user))
-      end
+      it_behaves_like 'action redirection to user calendar'
     end
 
     context 'with invalid params' do
@@ -73,9 +71,7 @@ describe EventsController, type: :controller do
         expect(assigns(:event)).to eq(event)
       end
 
-      it 'should redirect to calendar' do
-        expect(response).to redirect_to(user_calendar_path(user))
-      end
+      it_behaves_like 'action redirection to user calendar'
     end
 
     context 'invalid params' do
@@ -85,5 +81,17 @@ describe EventsController, type: :controller do
         expect(response).to render_template('edit')
       end
     end
+  end
+
+  describe 'DELETE' do
+    let(:event) { FactoryGirl.create(:event) }
+
+    before { delete :destroy, id: event.id }
+
+    it 'should delete event' do
+      expect(Event.count).to be_zero
+    end
+
+    it_behaves_like 'action redirection to user calendar'
   end
 end

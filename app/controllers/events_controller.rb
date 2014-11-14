@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_event, only: [:edit, :update]
+  before_action :find_event, only: [:edit, :update, :destroy]
 
   def new
     @event = Event.new(user: current_user)
@@ -9,8 +9,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      flash[:notice] = 'Event created successfully.'
-      redirect_to user_calendar_path(current_user)
+      redirect_to user_calendar_path(current_user), notice: 'Event created successfully.'
     else
       render 'new'
     end
@@ -29,6 +28,11 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to user_calendar_path(current_user), notice: 'Event deleted successfully.'
   end
 
   def index

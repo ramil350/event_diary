@@ -6,7 +6,7 @@ describe 'Home page' do
   context 'unauthenticated' do
     before { visit root_path }
 
-    it { should have_css('.navbar-brand', text: 'EVY') }
+    it { should have_css('.navbar-brand', text: 'Event Diary') }
     it { should have_link('Log in', href: new_user_session_path) }
     it { should have_link('Sign up', href: new_user_registration_path) }
     it { should_not have_link('Log out') }

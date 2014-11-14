@@ -3,6 +3,7 @@ $(document).ready ->
     eventStartEditable: true
     defaultView: 'month'
     eventLimit: true
+    eventBackgroundColor: '#26990d'
     events: '/events.json'
     eventClick: (event) ->
       location.href = '/events/' + event.id + '/edit'
