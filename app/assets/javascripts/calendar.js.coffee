@@ -1,10 +1,10 @@
 $(document).ready ->
-  bindCalendar('#user_calendar', '/my_calendar.json')
-  bindCalendar('#public_calendar', '/public_calendar.json')
+  bindCalendar('#user_calendar', '/my_calendar.json', true)
+  bindCalendar('#public_calendar', '/public_calendar.json', false)
 
-bindCalendar = (elementId, dataPath) ->
+bindCalendar = (elementId, dataPath, editable) ->
   $(elementId).fullCalendar
-    eventStartEditable: true
+    eventStartEditable: editable
     defaultView: 'month'
     eventLimit: true
     eventBackgroundColor: '#26990d'
