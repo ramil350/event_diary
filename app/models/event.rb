@@ -11,13 +11,12 @@ class Event < ActiveRecord::Base
   enumerize :repeats, in: REPEAT_TYPES, predicates: true
 
   scope :for_user, ->(user) { where(user: user) }
-  scope :over_period, ->(start_date, end_date) { where(starts_on: start_date..end_date) }
 
   def as_json(options = {})
     {
       id: id,
       title: title,
-      start: starts_on
+      start: try(:schedule_date) || starts_on
     }
   end
 end

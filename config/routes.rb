@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   resources :users do
-    get 'calendar', as: :calendar
   end
 
   resources 'events', except: :show
 
   get 'public_calendar', to: 'calendars#index'
+  get 'my_calendar', to: 'calendars#user_calendar'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

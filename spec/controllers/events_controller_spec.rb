@@ -19,7 +19,7 @@ describe EventsController, type: :controller do
     context 'with valid params' do
       let(:event_params) { { user_id: user.id, title: 'New event', starts_on: Date.today, recurring: false, repeats: '' } }
 
-      it_behaves_like 'action redirection to user calendar'
+      it_behaves_like 'action redirecting to user calendar'
     end
 
     context 'with invalid params' do
@@ -28,21 +28,6 @@ describe EventsController, type: :controller do
       it 'renders new' do
         expect(response).to render_template('new')
       end
-    end
-  end
-
-  describe 'GET index' do
-    let!(:event1) { FactoryGirl.create(:event, user: user, starts_on: Date.today) }
-    let!(:event2) { FactoryGirl.create(:event, starts_on: Date.today) }
-    let!(:event3) { FactoryGirl.create(:event, user: user, starts_on: Date.tomorrow) }
-    let(:start_date) { Date.today }
-    let(:end_date) { start_date }
-    let(:expected_json) { [event1].to_json }
-
-    before { get :index, { start: start_date, end: end_date, format: :json } }
-
-    it 'should return events as json' do
-      expect(response.body).to eq(expected_json)
     end
   end
 
@@ -71,7 +56,7 @@ describe EventsController, type: :controller do
         expect(assigns(:event)).to eq(event)
       end
 
-      it_behaves_like 'action redirection to user calendar'
+      it_behaves_like 'action redirecting to user calendar'
     end
 
     context 'invalid params' do
@@ -92,6 +77,6 @@ describe EventsController, type: :controller do
       expect(Event.count).to be_zero
     end
 
-    it_behaves_like 'action redirection to user calendar'
+    it_behaves_like 'action redirecting to user calendar'
   end
 end
