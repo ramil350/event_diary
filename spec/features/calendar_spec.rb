@@ -11,7 +11,7 @@ describe 'Calendar'  do
   subject { page }
 
   context 'My events' do
-    before { visit user_calendar_path(user) }
+    before { visit my_calendar_path }
 
     it { should have_link('New event', href: new_event_path(user)) }
     it { should have_css('.panel-heading', text: 'My events') }

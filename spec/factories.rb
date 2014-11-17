@@ -11,5 +11,9 @@ FactoryGirl.define do
     recurring false
     repeats nil
     user
+
+    trait :recurring do
+      recurring true
+    end
   end
 end

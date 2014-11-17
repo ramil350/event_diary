@@ -16,7 +16,7 @@
               = link_to image_tag(photo_url_for(current_user, 30)), user_path(current_user)
               = link_to current_user.display_name, user_path(current_user), class: 'navbar-link'
               = link_to 'Public calendar', public_calendar_path, class: 'btn btn-default'
-              = link_to 'My events', user_calendar_path(current_user), class: 'btn btn-default'
+              = link_to 'My events', my_calendar_path, class: 'btn btn-default'
               = link_to 'Profile', user_path(current_user), class: 'btn btn-default'
               = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-default'
             - else

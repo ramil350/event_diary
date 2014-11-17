@@ -5,4 +5,8 @@
 ### This is a Ruby On Rails application for managing events.
 
 ### Features:
-TODO
+
+- User registration
+- Planning events
+- Monthly schedule overview
+- Dragging events over calendar

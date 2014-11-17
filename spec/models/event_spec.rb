@@ -46,17 +46,5 @@ describe Event do
 
       it { should eq([event2]) }
     end
-
-    context '.over_period' do
-      let(:starts_on) { Date.today.beginning_of_month }
-      let(:ends_on) { starts_on.end_of_month }
-      let(:event1) { FactoryGirl.create(:event, starts_on: ends_on.prev_day) }
-      let(:event2) { FactoryGirl.create(:event, starts_on: ends_on.next_year) }
-      let(:event3) { FactoryGirl.create(:event, starts_on: starts_on.next_day) }
-
-      subject { described_class.over_period(starts_on, ends_on) }
-
-      it { should eq([event3, event1]) }
-    end
   end
 end
