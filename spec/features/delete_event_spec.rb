@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Delete event' do
   let(:user) { FactoryGirl.create(:user) }
-  let(:event) { FactoryGirl.create(:event) }
+  let(:event) { FactoryGirl.create(:event, user: user) }
 
   before do
     login_as user

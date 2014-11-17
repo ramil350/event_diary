@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_event, only: [:edit, :update, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :delete]
 
   def new
     @event = Event.new(user: current_user)
@@ -39,6 +40,10 @@ class EventsController < ApplicationController
 
   def find_event
     @event = Event.find(params[:id])
+  end
+
+  def authorize_user!
+    redirect_to my_calendar_path unless @event.user == current_user
   end
 
   def event_params
