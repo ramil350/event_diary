@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+  %body
+    %h3 Hello, #{@user.display_name}!
+
+    %p You have following events scheduled for today:
+
+    .body{ style: 'font-style: italic' }
+      %ul
+        - @events.each do |event|
+          %li= event.title
+
+    %p Have a great day!

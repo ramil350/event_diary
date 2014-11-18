@@ -35,16 +35,4 @@ describe Event do
 
     its(:as_json) { should eq(expected_result) }
   end
-
-  describe 'scopes' do
-    context '.for_user' do
-      let(:user) { FactoryGirl.create(:user) }
-      let(:event1) { FactoryGirl.create(:event) }
-      let(:event2) { FactoryGirl.create(:event, user: user) }
-
-      subject { described_class.for_user(user) }
-
-      it { should eq([event2]) }
-    end
-  end
 end

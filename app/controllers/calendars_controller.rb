@@ -7,7 +7,7 @@ class CalendarsController < ApplicationController
   end
 
   def user_calendar
-    query = EventScheduleQuery.new(Event.for_user(current_user))
+    query = EventScheduleQuery.new(current_user.events)
     calendar_for(query)
   end
 

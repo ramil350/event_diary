@@ -27,7 +27,7 @@ body {
 }
 
 .navbar.navbar-default {
-  background-color: $brownLight;
+  background-color: $cream;
   background-image: none;
   border-style: none;
 }
@@ -60,7 +60,7 @@ body {
 }
 
 .panel.panel-default {
-  background-color: $cream !important;
+//  background-color: $cream !important;
   border-style: none;
 }
 
@@ -70,7 +70,7 @@ body {
 
 .landing {
   color: $grayLight;
-  background: $cream;
+//  background: $cream;
   h1 {
     font-weight: bold;
   }

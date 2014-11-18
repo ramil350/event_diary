@@ -10,8 +10,6 @@ class Event < ActiveRecord::Base
 
   enumerize :repeats, in: REPEAT_TYPES, predicates: true
 
-  scope :for_user, ->(user) { where(user: user) }
-
   def as_json(options = {})
     {
       id: id,
