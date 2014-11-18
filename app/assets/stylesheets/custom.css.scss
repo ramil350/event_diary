@@ -84,3 +84,11 @@ body {
   padding-left: 40px;
   font-weight: bold;
 }
+
+.calendar-navigation {
+  input[type='date'] {
+    width: 160px;
+    margin-right: 5px;
+  }
+  float: right;
+}

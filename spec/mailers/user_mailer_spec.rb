@@ -10,6 +10,6 @@ describe UserMailer, type: :mailer do
   its(:subject) { should eq('Your events for today!') }
   its(:to) { should eq([user.email]) }
   its(:from) { should eq(['from@example.com']) }
-  # its(:body) { should match(client.full_name) }
-  # its(:body) { should match(delivery.message_text) }
+  its(:body) { should match(user.display_name) }
+  its(:body) { should match(events.sample.title) }
 end

@@ -2,4 +2,6 @@
 
 = link_to 'New event', new_event_path(current_user), class: 'btn btn-success'
 
-#user_calendar
+= render 'calendars/navigation'
+
+#user_calendar.calendar

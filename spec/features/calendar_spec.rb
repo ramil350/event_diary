@@ -15,11 +15,15 @@ describe 'Calendar'  do
 
     it { should have_link('New event', href: new_event_path(user)) }
     it { should have_css('.panel-heading', text: 'My events') }
+
+    it_behaves_like 'calendar navigator'
   end
 
-  context 'My events' do
+  context 'Public calendar' do
     before { visit public_calendar_path }
 
     it { should have_css('.panel-heading', text: 'Public calendar') }
+
+    it_behaves_like 'calendar navigator'
   end
 end
