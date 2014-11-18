@@ -43,10 +43,13 @@ class EventsController < ApplicationController
   end
 
   def authorize_user!
-    redirect_to my_calendar_path unless @event.user == current_user
+    unless @event.user == current_user
+      flash[:alert] = 'Unauthorized access!'
+      redirect_to my_calendar_path
+    end
   end
 
   def event_params
-    params.require(:event).permit(:title, :starts_on, :recurring, :repeats)
+    params.require(:event).permit(:title, :starts_on, :recurring, :repeats, :ends_on)
   end
 end

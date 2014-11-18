@@ -29,6 +29,7 @@ require 'capybara/poltergeist'
 ActiveRecord::Migration.maintain_test_schema!
 
 Dir[Rails.root.join('spec/controllers/shared_examples/**/*.rb')].each {|f| require f}
+Dir[Rails.root.join('spec/features/shared_examples/**/*.rb')].each {|f| require f}
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

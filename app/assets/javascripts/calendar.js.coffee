@@ -1,20 +1,23 @@
 $(document).ready ->
-  bindCalendar('#user_calendar', '/my_calendar.json')
-  bindCalendar('#public_calendar', '/public_calendar.json')
+  bindCalendar('#user_calendar', '/my_calendar.json', true)
+  bindCalendar('#public_calendar', '/public_calendar.json', false)
+  $('#navigation_submit').bind 'click', (clickEvent, data) -> refreshCalendar(clickEvent, data)
 
-bindCalendar = (elementId, dataPath) ->
+bindCalendar = (elementId, dataPath, editable) ->
   $(elementId).fullCalendar
-    eventStartEditable: true
+    eventStartEditable: editable
     defaultView: 'month'
     eventLimit: true
     eventBackgroundColor: '#26990d'
     events: dataPath
     eventClick: (event) ->
-      location.href = '/events/' + event.id + '/edit'
+      if editable
+        location.href = '/events/' + event.id + '/edit'
     eventDrop: (event, delta, revertFunc, jsEvent, ui, view) ->
-      updateEvent(event)
+      updateEvent(event, delta)
 
-updateEvent = (event) ->
+updateEvent = (event, delta) ->
+  endsOn = moment(event.ends_on).add(delta.days(), 'd').format('YYYY-MM-DD')
   $.ajax
     url: '/events/' + event.id,
     type: 'PATCH'
@@ -26,3 +29,10 @@ updateEvent = (event) ->
         starts_on: event.start.format()
         recurring: event.recurring
         repeats: event.repeats
+        ends_on: endsOn
+
+refreshCalendar = (clickEvent, data) ->
+  selectedValue = $('#navigation_date').val()
+  if selectedValue != ''
+    selectedDate = moment(selectedValue)
+    $('.calendar').fullCalendar('gotoDate', selectedDate);

@@ -7,6 +7,8 @@
 ### Features:
 
 - User registration
-- Planning events
+- Event planning
 - Monthly schedule overview
-- Dragging events over calendar
+- Drag'n'drop events over calendar
+- Email notifications about events for today
+- Reccuring events can be date-limited or last forever

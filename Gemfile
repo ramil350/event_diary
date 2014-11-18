@@ -17,9 +17,11 @@ gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails'
 gem 'enumerize'
 gem 'fullcalendar-rails'
+gem 'rufus-scheduler'
 
 group :development do
   gem 'spring'
+  gem 'letter_opener'
 end
 
 group :development, :test do

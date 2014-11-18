@@ -18,7 +18,7 @@ class EventScheduleQuery
     <<-EOS
       RIGHT OUTER JOIN generate_series(#{period_start}, #{period_end}, INTERVAL '1 DAY') dates
       ON (events.recurring = false AND dates.date = events.starts_on) OR
-         (events.recurring = true AND events.starts_on <= dates.date AND
+         (events.recurring = true AND events.starts_on <= dates.date AND (events.ends_on IS NULL OR events.ends_on >= dates.date) AND
            (
              (events.repeats = 'daily') OR
              (events.repeats = 'yearly' AND to_char(events.starts_on, 'MM-DD') = to_char(dates.date, 'MM-DD')) OR

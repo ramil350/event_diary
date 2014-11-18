@@ -1,13 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.navbar-brand {
-  font-weight: bold;
-}
-
-.navbar-right {
-  padding-top: 8px;
-}
+$grayLight: #eaeaea;
+$brownLight: #b49a61;
+$brownDark: #896e35;
+$cream: #CBC3B2;
 
 html, body {
   height:100%;
@@ -25,6 +22,73 @@ body {
   background: image-url("school.png");
 }
 
+.navbar-brand {
+  font-weight: bold;
+}
+
+.navbar.navbar-default {
+  background-color: $cream;
+  background-image: none;
+  border-style: none;
+}
+
+.navbar-nav > li > a,
+.navbar-header > a {
+  color: $grayLight !important;
+  &:hover {
+    color: white !important;
+  };
+}
+
+.navbar-default .navbar-nav > .open > a {
+  background-color: $brownDark !important;
+}
+
+.navbar-dropdown {
+  padding-top: 8px;
+}
+
 .navbar-link {
   padding-right: 5px;
+}
+
+.panel-heading {
+  background-color: $brownLight !important;
+  color: $grayLight !important;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.panel.panel-default {
+//  background-color: $cream !important;
+  border-style: none;
+}
+
+#user_calendar {
+  padding-top: 15px;
+}
+
+.landing {
+  color: $grayLight;
+//  background: $cream;
+  h1 {
+    font-weight: bold;
+  }
+}
+
+.landing-header {
+  padding: 10px 20px 20px 20px;
+}
+
+.landing-body {
+  padding-left: 40px;
+  font-weight: bold;
+}
+
+.calendar-navigation {
+  input[type='date'] {
+    width: 160px;
+    margin-right: 5px;
+  }
+  float: right;
 }

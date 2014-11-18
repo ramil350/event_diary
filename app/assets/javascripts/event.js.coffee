@@ -4,8 +4,14 @@ $(document).ready ->
 
 toggleCanRepeat = (checkbox) ->
   repeatsControl = $('#event_repeats')
+  endsOnControl = $('#event_ends_on')
   if checkbox.is(':checked')
     repeatsControl.removeAttr('disabled')
+    endsOnControl.removeAttr('disabled')
   else
-    repeatsControl.attr('disabled', 'disabled')
-    repeatsControl.val('')
+    disableControl(repeatsControl)
+    disableControl(endsOnControl)
+
+disableControl = (control) ->
+  control.attr('disabled', 'disabled')
+  control.val('')
