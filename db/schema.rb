@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111065755) do
+ActiveRecord::Schema.define(version: 20141118132503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 20141111065755) do
     t.boolean "recurring"
     t.string  "repeats"
     t.integer "user_id"
+    t.date    "ends_on"
   end
 
+  add_index "events", ["ends_on"], name: "index_events_on_ends_on", using: :btree
   add_index "events", ["recurring"], name: "index_events_on_recurring", using: :btree
   add_index "events", ["repeats"], name: "index_events_on_repeats", using: :btree
   add_index "events", ["starts_on"], name: "index_events_on_starts_on", using: :btree

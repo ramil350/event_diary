@@ -50,6 +50,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :starts_on, :recurring, :repeats)
+    params.require(:event).permit(:title, :starts_on, :recurring, :repeats, :ends_on)
   end
 end

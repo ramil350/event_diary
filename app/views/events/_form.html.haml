@@ -22,6 +22,11 @@
       = f.select :repeats, options_for_select(Event::REPEAT_TYPES, event.repeats), { include_blank: true }, { class: 'form-control', disabled: true }
 
   .form-group
+    = f.label :ends_on, class: 'col-sm-2 control-label'
+    .col-sm-6
+      = f.date_field :ends_on, class: 'form-control'
+
+  .form-group
     .col-sm-6.col-sm-offset-2
       = f.submit 'Submit', class: 'btn btn-default'
       - if event.persisted?

@@ -11,3 +11,4 @@
 - Monthly schedule overview
 - Drag'n'drop events over calendar
 - Email notifications about events for today
+- Reccuring events can be date-limited or last forever
