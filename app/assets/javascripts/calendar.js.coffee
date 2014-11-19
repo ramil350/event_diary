@@ -8,7 +8,6 @@ bindCalendar = (elementId, dataPath, editable) ->
     eventStartEditable: editable
     defaultView: 'month'
     eventLimit: true
-    eventBackgroundColor: '#26990d'
     events: dataPath
     eventClick: (event) ->
       if editable

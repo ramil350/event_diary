@@ -9,7 +9,7 @@
     %nav.navbar.navbar-default{ role: 'navigation' }
       .container
         .navbar-header
-          %a.navbar-brand{ href: '/' } 
+          %a.navbar-brand{ href: '/' }
             %i.glyphicon.glyphicon-calendar
             Event Diary
         .navbar-collapse.collapse
@@ -26,7 +26,7 @@
                   %li= link_to 'My events', my_calendar_path
               %li
                 = link_to user_path(current_user) do
-                  %i.glyphicon.glyphicon-user 
+                  %i.glyphicon.glyphicon-user
                   Profile
               %li
                 = link_to destroy_user_session_path, method: :delete do
@@ -43,9 +43,11 @@
       .container
         = render 'shared/flashes'
 
-        .panel.panel-default
-          - if yield(:title).present?
+        - if yield(:title).present?
+          .panel.panel-default
             .panel-heading
               = yield(:title)
-          .panel-body
-            = yield
+            .panel-body
+              = yield
+        - else
+          = yield
