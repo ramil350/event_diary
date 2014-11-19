@@ -8,48 +8,7 @@ $color-primary-1: #FFEBD9;
 $color-primary-2: #FFE3C9;
 $color-primary-3: #DDB58F;
 $color-primary-4: #C99C71;
-
-$color-secondary-1-0: #739F92;	/* Main Secondary color (1) */
-$color-secondary-1-1: #A5C2BA;
-$color-secondary-1-2: #8AAFA4;
-$color-secondary-1-3: #5E9282;
-$color-secondary-1-4: #4B8573;
-
-$color-secondary-2-0: #F1C5AE;	/* Main Secondary color (2) */
-$color-secondary-2-1: #FFE6D9;
-$color-secondary-2-2: #FFDCC9;
-$color-secondary-2-3: #DDAA8F;
-$color-secondary-2-4: #C99071;
-
-$color-complement-0: #6C8E95;	/* Main Complement color */
-$color-complement-1: #9FB6BA;
-$color-complement-2: #829FA4;
-$color-complement-3: #598188;
-$color-complement-4: #47737C;
-
-//$color-primary-0: #FF963F;  /* Main Primary color */
-//$color-primary-1: #FFBC84;
-//$color-primary-2: #FFA85F;
-//$color-primary-3: #FF831C;
-//$color-primary-4: #FF7400;
-//
-//$color-secondary-1-0: #92B08F;  /* Main Secondary color (1) */
-//$color-secondary-1-1: #B2E6AC;
-//$color-secondary-1-2: #AAD0A7;
-//$color-secondary-1-3: #849981;
-//$color-secondary-1-4: #788477;
-//
-//$color-secondary-2-0: #FD434D;  /* Main Secondary color (2) */
-//$color-secondary-2-1: #FE898F;
-//$color-secondary-2-2: #FD646C;
-//$color-secondary-2-3: #FD222D;
-//$color-secondary-2-4: #FC000D;
-//
-//$color-complement-0: #208383;  /* Main Complement color */
-//$color-complement-1: #4F9C9C;
-//$color-complement-2: #338C8C;
-//$color-complement-3: #0F7575;
-//$color-complement-4: #056565;
+$color-primary-5: #925821;
 
 html, body {
   height:100%;
@@ -70,7 +29,7 @@ body {
 }
 
 .navbar.navbar-default {
-  background-color: #925821;
+  background-color: $color-primary-5;
   background-image: none;
   border-style: none;
 }
@@ -105,7 +64,6 @@ body {
 
 .panel.panel-default {
   border-style: none;
-//  background-color: #D1E9CF;
 }
 
 // Landing
