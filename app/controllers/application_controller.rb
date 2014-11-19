@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :full_name
     devise_parameter_sanitizer.for(:account_update) << :full_name
   end
+
+  def after_sign_in_path_for(resource)
+    my_calendar_path
+  end
 end
