@@ -64,9 +64,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.mailgun.org',
     port:                 587,
-    domain:               'localhost',
-    user_name:            'notifier@eventdiary.mailgun.org',
-    password:             'password',
+    domain:               ENV['MAILER_DOMAIN'],
+    user_name:            ENV['MAILER_USERNAME'],
+    password:             ENV['MAILER_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true
   }

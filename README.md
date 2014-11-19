@@ -10,5 +10,5 @@
 - Event planning
 - Monthly schedule overview
 - Drag'n'drop events over calendar
-- Email notifications about events for today
+- Email notifications about events for today (at 06:00 UTC)
 - Reccuring events can be date-limited or last forever
