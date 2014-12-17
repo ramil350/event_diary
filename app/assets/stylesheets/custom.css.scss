@@ -5,10 +5,10 @@ $grayLight: #eaeaea;
 
 $color-primary-0: #F1CFAE;	/* Main Primary color */
 $color-primary-1: #FFEBD9;
-$color-primary-2: #FFE3C9;
-$color-primary-3: #DDB58F;
-$color-primary-4: #C99C71;
-$color-primary-5: #925821;
+$color-primary-2: #FD222D;
+$color-primary-3: #788477;
+$color-primary-4: #788477;
+$color-primary-5: #FD434C;
 
 html, body {
   height:100%;
@@ -20,7 +20,8 @@ body {
   font-weight: 1200;
   padding-bottom: 0;
   margin: 0;
-  background: image-url('school.png');
+  /*background: image-url('school.png');*/
+  background-color: #92B08F !important;
 }
 
 // Navbar
@@ -43,7 +44,7 @@ body {
 }
 
 .navbar-default .navbar-nav > .open > a {
-  background-color: $color-primary-3 !important;
+  background-color: $color-primary-2 !important;
 }
 
 .navbar-dropdown {
